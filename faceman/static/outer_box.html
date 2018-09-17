@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="css/outer_box.css" />
+	<link rel="icon" href="img/bitbug_chigua.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="img/bitbug_chigua.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+	<title>outer_box->贼鸡儿专业的表情包搜索网站</title>
+</head>
+
+<body >
+	<!-- 登录注册隐藏页 -->
+	<div class="pusher" id="pusher" >
+		<!-- 登录 -->
+		<div class="pusher_login  flex-column align-items-center" data-pusher="login">
+			<h1>FaceMan->登录</h1>
+			<input type="text" name="uname" id="uname"   placeholder="请输入账号"/>
+			<span data-lo="uname"></span>
+			<input type="password" name="upwd" id="upwd" placeholder="请输入密码" />
+			<span data-lo="upwd"></span>
+			<button type="button">登录</button>
+			<div><a href="">忘记密码？</a><span>还没有账号？</span> 	<a href="javascript:void(0)">注册</a></div>
+			
+		</div>
+		<!-- 注册 -->
+		<div class="pusher_register  flex-column align-items-center" data-pusher="register" >
+			<h1>FaceMan->注册</h1>
+			<span data-re="uname"></span>
+			<input type="text" name="uname"   placeholder="请输入账号"/>			
+			<span data-re="upwd"> </span>
+			<input type="password" name="upwd"  placeholder="请输入密码" />
+			<span data-re="uphone"></span>
+			<input type="text" name="uphone"   placeholder="请输入联系电话"/>
+			<span data-re="uemail"></span>
+			<input type="text" name="uemail"   placeholder="请输入邮箱"/>
+			<span ></span>
+			<button type="button">注册</button>
+			
+			
+			
+		</div>
+<!-- 透明背景 -->
+		<div class="pusher_bg" data-pusher="bg"></div>
+	</div>
+	
+	<div class="" id="max_box_father">
+	<div class="container" id="max_box">
+		 <!--顶部导航 -->
+		<div class="top_nav  d-flex align-items-center position-relative" id="top_nav">
+			<div class="top_logo">
+				<a href="#"><img src="img/top_logo.jpg"></a>
+			</div>
+			<div id="nav_content" class=" ml-4">
+				<ul class="w-100 list-unstyled d-flex flex-row justify-content-around align-items-center mb-0">
+					<li><a href="#" class="yell">首页</a></li>					
+					<li><a href="#">最近流行</a></li>
+					<li class="position-relative" id="allkinds"><a href="#">分类推荐▼</a>
+					<div class="position-absolute  ">
+						 <a href="#">野表情</a>
+						 <a href="#">明星爱豆</a>
+						 <a href="#">影视相关</a>
+						 <a href="#">综艺秀场</a>
+					</div>
+					</li>
+					<li><a href="#">gif动图</a></li>		
+					<li><a href="#">动图百科</a></li>	
+				</ul>
+			</div>
+			<button type="button"  class="if_search">搜索</button>
+			<div id="login" class="d-flex justify-content-around align-items-center position-absolute ">
+				<a href="javascript:void(0)" id="login_a1" class="position-relative">登录</a><span class="align-middle"> &nbsp; |  &nbsp;</span><a href="javascript:void(0)" class="login_a2 " id="login_a2">注册</a><img src="img/scar.gif" class="ml-2">
+			</div>
+			
+			<div class="ssk hidden">
+								<div class="aa d-flex justify-content-around align-items-center">
+									<input type="text" id="search2" placeholder="" />
+									<button type="button" id="search_btn2" class="search_btn2 "></button>
+								</div>
+			
+							</div>
+		</div>
+		
+		<!-- 内容0 -->
+		<div class="w-100 border-danger border"  style="height: 2000px;">
+			
+		</div>
+		
+<!-- 内容1正在流行 -->
+
+
+
+
+
+	</div>
+
+</div>
+<div class="footer justify-content-around align-items-center" id="footer">
+	<div class="d-flex justify-content-around align-items-center"><a href="#">友情链接</a> <a href="#">用户服务</a> <a href="#">关于我们</a> <a href="#">加入我们</a></div><div> <span class="w_q wei"></span ><div></div> <span class="w_q qq"></span><div></div></div>
+		<p>邮箱：466364612@qq.com nbsp; 沪ICP备40088238823THC号</p>
+</div>
+<div class="toTop">
+	▲
+</div>
+
+
+
+	<!-- 基本 -->
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	    crossorigin="anonymous"></script>
+	<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	    crossorigin="anonymous"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	    crossorigin="anonymous"></script>
+	
+	<script type="text/javascript" src="js/outer_box.js"></script>
+
+
+</body>
+
+</html>

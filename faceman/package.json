@@ -1,0 +1,11 @@
+{
+  "name": "faceman",
+  "version": "1.0.0",
+  "description": "none",
+  "main": "main.js",
+  "scripts": {
+    "test": "start"
+  },
+  "author": "zhou",
+  "license": "ISC"
+}

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="css/index_fm.css" />
+	<!-- 主页 -->
+	<link rel="stylesheet" type="text/css" href="css/outer_box.css" />
+	<!-- 外盒子 -->
+	<link rel="icon" href="img/bitbug_chigua.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="img/bitbug_chigua.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="css/animate.css" />
+	<title>FaceMan->贼鸡儿专业的表情包搜索网站</title>
+</head>
+
+<body>
+	<!-- 登录注册隐藏页 -->
+	<div class="pusher" id="pusher">
+		<!-- 登录 -->
+		<div class="pusher_login  flex-column align-items-center" data-pusher="login">
+			<h1>FaceMan->登录</h1>
+			<input type="text" name="uname" id="uname" placeholder="请输入账号" />
+			<span data-lo="uname"></span>
+			<input type="password" name="upwd" id="upwd" placeholder="请输入密码" />
+			<span data-lo="upwd"></span>
+			<button type="button">登录</button>
+			<div>
+				<a href="">忘记密码？</a>
+				<span>还没有账号？</span>
+				<a href="javascript:void(0)">注册</a>
+			</div>
+
+		</div>
+		<!-- 注册 -->
+		<div class="pusher_register  flex-column align-items-center" data-pusher="register">
+			<h1>FaceMan->注册</h1>
+			<span data-re="uname"></span>
+			<input type="text" name="uname" placeholder="请输入账号" />
+			<span data-re="upwd"> </span>
+			<input type="password" name="upwd" placeholder="请输入密码" />
+			<span data-re="uphone"></span>
+			<input type="text" name="uphone" placeholder="请输入联系电话" />
+			<span data-re="uemail"></span>
+			<input type="text" name="uemail" placeholder="请输入邮箱" />
+			<span></span>
+			<button type="button">注册</button>
+
+
+
+		</div>
+		<!-- 透明背景 -->
+		<div class="pusher_bg" data-pusher="bg"></div>
+	</div>
+
+	<div class="" id="max_box_father">
+		<div class="container" id="max_box">
+			<!--顶部导航 -->
+			<div class="top_nav  d-flex align-items-center position-relative" id="top_nav">
+				<div class="top_logo">
+					<a href="#">
+						<img src="img/top_logo.jpg">
+					</a>
+				</div>
+				<div id="nav_content" class=" ml-4">
+					<ul class="w-100 list-unstyled d-flex flex-row justify-content-around align-items-center mb-0">
+						<li>
+							<a href="#" class="yell">首页</a>
+						</li>
+						<li>
+							<a href="#">最近流行</a>
+						</li>
+						<li class="position-relative" id="allkinds">
+							<a href="#">分类推荐▼</a>
+							<div class="position-absolute  ">
+								<a href="#">野表情</a>
+								<a href="#">明星爱豆</a>
+								<a href="#">影视相关</a>
+								<a href="#">综艺秀场</a>
+							</div>
+						</li>
+						<li>
+							<a href="#">gif动图</a>
+						</li>
+						<li>
+							<a href="#">动图百科</a>
+						</li>
+					</ul>
+				</div>
+				<button type="button" class="if_search">搜索</button>
+				<div id="login" class="d-flex justify-content-around align-items-center position-absolute ">
+					<a href="javascript:void(0)" id="login_a1" class="position-relative">
+						登录</a>
+					<span class="align-middle"> &nbsp; | &nbsp;</span>
+					<a href="javascript:void(0)" class="login_a2 " id="login_a2">注册</a>
+					<img src="img/scar.gif" class="ml-2">
+				</div>
+
+				<div class="ssk hidden">
+					<div class="aa d-flex justify-content-around align-items-center">
+						<input type="text" id="search2" placeholder="" />
+						<button type="button" id="search_btn2" class="search_btn2 "></button>
+					</div>
+
+				</div>
+			</div>
+			
+			
+			<!-- 首页搜索 -->
+			<div class="index_search w-100 " id="index_search">
+				<h1>FaceMan->贼鸡儿专业的表情包搜索网站</h1>
+				<h2>除了不存在的，其他的都有啊~</h2>
+				<div class="search">
+					<div class="bb d-flex justify-content-around align-items-center">
+						<input type="text" id="search1" placeholder="输入关键词查找表情包" />
+						<button type="button" id="search_btn1" class="search_btn1"></button>
+					</div>
+
+				</div>
+				<div class="hot_tips   " id="hot_tips_menu">
+					<h4>热门搜索</h4>
+					<a href="#">
+						<img src="img/harden0.jpg">
+					</a>
+					<a href="#">
+						<img src="img/weishao0.png">
+					</a>
+					<a href="#">
+						<img src="img/rose0.jpg">
+					</a>
+					<a href="#">
+						<img src="img/james0.jpg">
+					</a>
+					<a href="#">
+						<img src="img/harden0.jpg">
+					</a>
+
+				</div>
+			</div>
+			<!-- 内容1正在流行 -->
+			<div class="index_content1_pop w-100" id="index_content1_pop">
+				<p>正在流行</p>
+				<p>Recent Popular</p>
+
+
+				<div id="demo">
+					<div class="img_box">
+						<img src="img/01.jpg" alt="6">
+						<div class="intr">
+							<a href="javascript:void(0)" title="收藏">❤收藏</a>
+						</div>
+					</div>
+					<div class="img_box">
+						<img src="img/02.jpg" alt="6">
+						<div class="intr">
+							<a href="javascript:void(0)" title="收藏">❤收藏</a>
+						</div>
+					</div>
+
+					<div class="img_box">
+						<img src="img/03.jpg" alt="6">
+						<div class="intr">
+							<a href="javascript:void(0)" title="收藏">❤收藏</a>
+						</div>
+					</div>
+		<div class="img_box">
+						<img src="img/01.jpg" alt="6">
+						<div class="intr">
+							<a href="javascript:void(0)" title="收藏">❤收藏</a>
+						</div>
+					</div>
+					<div class="img_box">
+						<img src="img/02.jpg" alt="6">
+						<div class="intr">
+							<a href="javascript:void(0)" title="收藏">❤收藏</a>
+						</div>
+					</div>
+
+					<div class="img_box">
+						<img src="img/03.jpg" alt="6">
+						<div class="intr">
+							<a href="javascript:void(0)" title="收藏">❤收藏</a>
+						</div>
+					</div>
+							<div class="img_box">
+											<img src="img/01.jpg" alt="6">
+											<div class="intr">
+												<a href="javascript:void(0)" title="收藏">❤收藏</a>
+											</div>
+										</div>
+										<div class="img_box">
+											<img src="img/02.jpg" alt="6">
+											<div class="intr">
+												<a href="javascript:void(0)" title="收藏">❤收藏</a>
+											</div>
+										</div>
+					
+										<div class="img_box">
+											<img src="img/03.jpg" alt="6">
+											<div class="intr">
+												<a href="javascript:void(0)" title="收藏">❤收藏</a>
+											</div>
+										</div>
+					<div class="img_box">
+									<img src="img/01.jpg" alt="6">
+									<div class="intr">
+										<a href="javascript:void(0)" title="收藏">❤收藏</a>
+									</div>
+								</div>
+								<div class="img_box">
+									<img src="img/02.jpg" alt="6">
+									<div class="intr">
+										<a href="javascript:void(0)" title="收藏">❤收藏</a>
+									</div>
+								</div>
+			
+								<div class="img_box">
+									<img src="img/03.jpg" alt="6">
+									<div class="intr">
+										<a href="javascript:void(0)" title="收藏">❤收藏</a>
+									</div>
+								</div>
+
+
+
+
+
+
+
+
+				</div>
+
+
+
+
+
+			</div>
+
+		</div></div>
+		<div class="footer justify-content-around align-items-center" id="footer">
+			<div class="d-flex justify-content-around align-items-center">
+				<a href="#">友情链接</a>
+				<a href="#">用户服务</a>
+				<a href="#">关于我们</a>
+				<a href="#">加入我们</a>
+			</div>
+			<div>
+				<span class="w_q wei"></span>
+				<div></div>
+				<span class="w_q qq"></span>
+				<div></div>
+			</div>
+			<p>邮箱：466364612@qq.com nbsp; 沪ICP备40088238823THC号</p>
+		</div>
+<div class="toTop">
+	▲
+</div>
+
+
+		<!-- 基本 -->
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		    crossorigin="anonymous"></script>
+		<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		    crossorigin="anonymous"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		    crossorigin="anonymous"></script>
+				<script type="text/javascript" src="js/outer_box.js"></script>
+				
+				<!-- 瀑布流 -->
+		<script src="js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.waterfall.js"></script>
+<script type="text/javascript" src="js/index_fm.js"></script>
+		
+
+		<!-- 用 integrity 属性？
+
+integrity 属性是子资源完整性新规范的一部分。它允许你为脚本文件将包含的内容内容提供一个 hash。这意味着可以防止在传输的时候内容丢失或者被恶意修改。就算使用了 SSL，这个规范也是有意义的，因为有时候你要加载的资源是你无法控制的站外资源，比如 code.jquery.com 。
+
+如果你选择使用它，你要在 script 标签里包含一个 hash 类型以及 hash 值，将它们以连字符隔开。看起来类似下面这样：
+
+<-script
+  src="//code.jquery.com/jquery.js"
+  integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC">
+<-/script->
+我还没有看到有人用了它，然而如果你知道有哪个网站用了，可以在下面评论。
+
+还可以用 crossorigin ！
+
+虽然还没有完全被标准化，但是一些浏览器支持 crossorigin 属性。基本的想法是，浏览器会限制对非同源资源的使用（同源资源是指相同的协议、hostname 以及端口，例如： ` http://google.com:80）。
+
+这是为了防止你，例如，向你的竞争对手网站发请求，注销你的用户在对方网站的账号（这不好！）。这个问题牵扯到 script 标签虽然有点意外，但如果实现了 crossorigin ，你只要加一个 handler 到 window.onerror 事件上，就能在看控制台上看到一些警告信息，提示你引入了一个不该引入的外站脚本。在安全的浏览器下， 除非 你指定 crossorigin 属性，不然加载外站脚本不会出错。
+
+crossorgin 不是一个神奇的安全手段，它所做的只是让浏览器启用正常的 CORS 访问检查，发起一个 OPTIONS 请求并检查 Access-Control header。
+ -->
+</body>
+
+</html>
