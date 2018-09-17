@@ -7,8 +7,6 @@
 		spacingWidth: 20,
 		resizeable: true,
 		ajaxCallback: function (success, end) {
-			
-
 			var data = {
 				"data": [{
 					"src": "duck2.jpg"

@@ -73,7 +73,33 @@ var data={
 	
 	
 });
+router.get("/simi",(req,res)=>{/* 搜索关键词查找  需要输入查询字符串tips= &pNum=*/
+var data={
+	
+	picture:[]
+	
+};
+	
 
+	var sql=`SELECT * FROM fm_picture limit ?,8 `;
+	
+	//sql+=`LIMIT ${pNum*3},3`;//页码与每页数量都可以改var limit=`LIMIT ${pNum*9},每页数量`;
+	
+	var start=Math.floor(Math.random()*2);
+	pool.query(sql,[start],(err,result)=>{
+		
+		if (err){ console.log( err);}
+		
+		data.picture=result;
+		
+		res.send(data);
+	} );
+	
+	
+	
+	
+	
+});
 
 
 
