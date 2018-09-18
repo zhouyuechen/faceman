@@ -200,15 +200,15 @@ body {
 			width: 100%;
 			margin:3rem auto;
 			position: relative;
-			transform: perspective(1000);
-			-moz-transform: perspective(1000);
-			-o-transform: perspective(1000);
-			-webkit-transform: perspective(1000);
-			-webkit-transform-style: preserve-3d;
-			transform-style: preserve-3d;
+		border-bottom:2px solid transparent ;
 			background-color: #000000;
+			height: 2000px;
 		}
-
+#demo:after{
+	content: "";
+	display: block;
+	clear: both;
+}
 		.img_box {
 			width: 15%;
 			float: left;
@@ -244,8 +244,8 @@ body {
 .img_box .intr a:hover{
 color: firebrick;
 }
-		.img_box:hover {
-			z-index: 999;
+		.bigger{
+			z-index: 599;
 			transform-origin: 50% 50%;
 			transform: scale(1.1);
 			
@@ -256,3 +256,17 @@ color: firebrick;
 		.img_box img {
 			width: 100%;
 		}
+div.pic.zoomIn{
+	animation-delay: 0.3s;
+	
+}
+#demo>p{
+	position: absolute;
+	bottom: -4rem;
+	text-align: center;
+	font-size: 2rem;
+	color: #F1CD1F;
+	font-weight: 700;
+	width: 100%;
+	
+}

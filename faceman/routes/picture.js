@@ -81,16 +81,16 @@ var data={
 };
 	
 
-	var sql=`SELECT * FROM fm_picture limit ?,8 `;
+	var sql=`SELECT * FROM fm_picture  `;
 	
 	//sql+=`LIMIT ${pNum*3},3`;//页码与每页数量都可以改var limit=`LIMIT ${pNum*9},每页数量`;
 	
-	var start=Math.floor(Math.random()*2);
+	var start=Math.floor(Math.random()*14);
 	pool.query(sql,[start],(err,result)=>{
 		
 		if (err){ console.log( err);}
 		
-		data.picture=result;
+		data.picture=result.slice(start,start+8);
 		
 		res.send(data);
 	} );

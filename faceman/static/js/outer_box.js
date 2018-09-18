@@ -147,7 +147,7 @@ $(".toTop").on("click",function(){
 	function unScroll() {
 		$(document).on("mousewheel",unmouseW);
 		var top=$(document).height();
-		var top2=top*0.2;
+		var top2=top*0.1;
 		$(window).scrollTop(top2);
 $(document).on('scroll.unable',function (e){
 $(window).scrollTop(top2);

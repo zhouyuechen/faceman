@@ -1,5 +1,6 @@
 "use strict";
 (function () {
+	
 	$("#demo").waterfall({
 		itemClass: ".img_box",
 		minColCount: 2,

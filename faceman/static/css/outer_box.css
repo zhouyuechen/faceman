@@ -131,7 +131,7 @@ body {
 	border-bottom: 4px solid #f1cd1f;
 	position: sticky !important;
 	top: 0px;
-	z-index: 150;
+	z-index: 9150;
 		transform: perspective(1000);
 	    -moz-transform: perspective(1000);
 	    -o-transform: perspective(1000);
