@@ -69,6 +69,11 @@
 							str += templ.replace("{{src}}", first.picture[i].src).replace("{{pid}}", first.picture[i].pid);
 						}
 						$(str).appendTo($("#demo"));
+						$("#demo .img_box>.pic").on("click",function () { 
+							var newPid= $(this).attr("data-pid");
+						
+							location.href=`http://localhost:3015/img_intr.html?pid=${newPid}`;
+						 });
 					})()}
 
 					success();
@@ -80,12 +85,14 @@
 
 
 			$("#demo").on("mouseenter", ".img_box", function(e) {
-				$(this).addClass("bigger")
+				$(this).addClass("bigger");
+				e.stopPropagation();
 
 
 			});
 			$("#demo").on("mouseleave", ".img_box", function(e) {
-				$(this).removeClass("bigger")
+				$(this).removeClass("bigger");
+				e.stopPropagation();
 
 
 			});

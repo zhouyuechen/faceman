@@ -101,7 +101,33 @@ var data={
 	
 });
 
-
+router.get("/img",(req,res)=>{/* 搜索关键词查找  需要输入查询字符串tips= &pNum=*/
+  var data={
+    
+    picture:[]
+    
+  };
+  var pid=req.query.pid;
+  
+    var sql=`SELECT * FROM fm_picture WHERE pid=? `;
+    
+    //sql+=`LIMIT ${pNum*3},3`;//页码与每页数量都可以改var limit=`LIMIT ${pNum*9},每页数量`;
+    
+    var start=Math.floor(Math.random()*14);
+    pool.query(sql,[pid],(err,result)=>{
+      
+      if (err){ console.log( err);}
+      
+      data.picture=result;
+      
+      res.send(data);
+    } );
+    
+    
+    
+    
+    
+  });
 
 
 

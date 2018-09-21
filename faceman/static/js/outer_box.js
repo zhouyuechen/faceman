@@ -186,4 +186,8 @@ $("#allkinds").parent().children(":first").click(function(){
 	location.href=`http://localhost:3015/index_fm2.html`;
 } );
 
+
+
+
+
 })()
