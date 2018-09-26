@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试登录</title>
+</head>
+<body>
+    
+        <input type="text" name="uname" id="uname">
+        <input type="password" name="upwd" id="upwd">
+        <input type="text" name="uphone" id="uphone">
+        <input type="text" name="uemail" id="uemail">
+
+        <button id="login" >登录</button>
+        <button  id="islogin">是否登录</button>
+        <button  id="logout">注销</button>
+        <button  id="register">注册</button>
+
+
+
+
+
+
+   
+<script src="js/jquery-1.7.2.min.js"></script>
+<script>
+    $(function () {  
+/* function isLogin() { 
+
+
+ } */
+
+
+
+$("#login").on("click",function(){
+    (async function(){
+        console.log(`uname=${$("#uname").val()}&upwd=${$("#upwd").val()}`);
+        
+        var loginRes= await $.ajax({
+            type:"POST",
+            url:"http://localhost:3015/user/login",
+            data: `uname=${$("#uname").val()}&upwd=${$("#upwd").val()}`,
+            dataType: "json"
+
+        },
+
+        ).promise();
+        console.log(loginRes);
+
+
+
+
+
+
+    })()
+
+} );
+$("#islogin").on("click",function(){
+    (async function(){
+        
+        
+        var islogin= await $.ajax({
+            type:"GET",
+            url:"http://localhost:3015/user/login",
+            dataType: "json"
+        },
+        ).promise();
+        console.log(islogin);
+    })()
+} );
+$("#logout").on("click",function(){
+    (async function(){
+        
+        
+        var logout= await $.ajax({
+            type:"GET",
+            url:"http://localhost:3015/user/logout",
+            dataType: "json"
+        },
+        ).promise();
+       console.log(logout);
+    })()
+} );
+
+
+$("#register").on("click",function () {
+    (async function(){
+        
+        
+        var register= await $.ajax({
+            type:"POST",
+            url:"http://localhost:3015/user/register",
+            data: `uname=${$("#uname").val()}&upwd=${$("#upwd").val()}&uphone=${$("#uphone").val()}&uemail=${$("#uemail").val()}`,
+            dataType: "json"
+
+        },
+
+        ).promise();
+        console.log(register);
+
+    })()
+
+    
+} );
+
+})
+</script>
+
+</body>
+</html>

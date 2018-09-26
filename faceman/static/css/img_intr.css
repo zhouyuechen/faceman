@@ -278,8 +278,9 @@ font-weight: 700;
 width: 100%;
 
 }
-div.img_box.hide{
+div.hide{
 	display: none;
+	opacity: 0;
 }
 button:focus{
 	outline: none;

@@ -4,18 +4,58 @@ const pool = require('../pool.js');
 //使用路由器
 var router = express.Router();
 //添加请求方法为post，url为add的路由
-//2.用户登录
-router.post('/login',(req,res)=>{
+//.判断用户是否登录
+router.get('/login',function(req,res){
+  if(req.session.user){
+    var user=req.session.user;
+    res.send(user);
+   }else{
+    res.send('0');
+   }
+  
+  });
+router.post('/login',(req,res)=>{//2.用户登录
   var {uname,upwd} = req.body;
   //查询数据库中是否含有这条记录
   //同时满足用户名为$uname和密码$upwd
-  var sql='SELECT * FROM xz_user WHERE uname=? AND upwd=?';
+  var sql='SELECT count(uid) AS BB,uid FROM fm_user WHERE uname=? AND upwd=?';
   pool.query(sql,[uname,upwd],(err,result)=>{
     if(err) throw err;
-    if(result.length>0){
-	    res.send('login suc');
+    console.log(result);
+    if(result[0]['BB']==1){
+      /* 登录成功就把用户信息加入session */
+      var user={
+        uname,
+        uid:result[0]['uid']
+       }
+       req.session.user=user;
+       req.session.sign=true;
+       console.log(req.session);
+	    res.send("1");
 	  }else{
-	    res.send('uname or upwd error');
+	    res.send("0");
+	  }
+  });
+});
+
+router.post('/register',(req,res)=>{//.用户注册
+  var {uname,upwd,uphone,uemail} = req.body;
+  //查询数据库中是否含有这条记录
+  //同时满足用户名为$uname和密码$upwd
+  var sql='SELECT count(uid) AS BB FROM fm_user WHERE uname=?';
+  pool.query(sql,[uname],(err,result)=>{
+    if(err) throw err;
+    
+    if(result[0]['BB']==0){
+      var sql2='INSERT INTO fm_user VALUES (null,?,?,?,?,null,null,null)';
+      pool.query(sql2,[uname,upwd,uphone,uemail],(err,result)=>{
+        if(err) throw err;
+     
+      if(result.affectedRows>0)
+      res.send("1");else res.send("0");
+    });
+	  }else{
+	    res.send("0");
 	  }
   });
 });
@@ -46,6 +86,15 @@ router.get('/list', (req,res)=>{
     },5000)
   });
 });
-
+//用户登出
+router.get('/logout', function(req, res) {
+  if(req.session.user){
+    req.session.user = null;
+    res.end();
+  }
+  
+  else
+  {res.send("0")}
+ });
 //导出路由器
 module.exports = router;

@@ -15,22 +15,8 @@ $(function () {
 			}).promise();
 /* 			console.log(intr_content);
  */           $(intr_content).appendTo("#max_box");
-		   $("#demo").waterfall({
-			itemClass: ".img_box",
-			minColCount: 2,
-			spacingHeight: 20,
-			spacingWidth: 20,
-			resizeable: false,
-			ajaxCallback: function(success, end) {
-				$(".img_box").removeClass("hide");
-				
-
-				success();
-				end();
-				return;
-			}
-	
-		});
+            $("#pic_choose").attr("style","");
+		  
 		var pid=location.search.split("=")[1]||2;
 		var thisimg=await $.ajax({
 			url: `http://localhost:3015/picture/img`,
@@ -50,6 +36,10 @@ $(function () {
 		}
 		console.log(str_tip);
 		$(str_tip).appendTo(".relatedTips>ul");
+		$(".relatedTips>ul>li:not(:first)").on("click",function () { 
+			let tip=$(this).text();
+			location.href=`http://localhost:3015/img_search.html?tips=${tip}`;
+		 });
 		thisPsize=thisimg.psize;
 		$("div.imgFun>p").text(`图片尺寸:${thisPsize}`);
 
@@ -78,8 +68,8 @@ $(function () {
 			var str = "";
 
 			var templ =
-				`<div class="img_box hide" style="opacity:0;filter:alpha(opacity=0);">
-			<div class="pic animated zoomIn " data-pid="{{pid}}" ><img src="/{{src}}" /></div>
+				`<div  class="img_box hide" >
+			<div class="pic animated  " data-pid="{{pid}}" ><img src="/{{src}}" /></div>
 			<div class="intr">
 			<a href="javascript:void(0)" title="收藏">❤收藏</a>
 					</div></div>`;
@@ -90,6 +80,26 @@ $(function () {
 
 			//console.log(str);
 			$(str).appendTo($("#demo"));
+			$("#demo").waterfall({
+				itemClass: ".img_box",
+				minColCount: 2,
+				spacingHeight: 20,
+				spacingWidth: 20,
+				resizeable: false,
+				ajaxCallback: function(success, end) {
+					if($(".img_box").is(".hide")){
+						$(".img_box").removeClass("hide");
+						$(".img_box>.pic").addClass("zoomIn");
+					}
+					
+					
+	
+					success();
+					end();
+					return;
+				}
+		
+			});
 			$("#demo .img_box>.pic").on("click",function () { 
 				var newPid= $(this).attr("data-pid");
 			

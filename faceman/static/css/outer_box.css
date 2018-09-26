@@ -4,7 +4,7 @@
 	font-family: YouYuan,"Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", 微软雅黑, Arial, sans-serif;
 	
 
-::-moz-focus-inner {border-color: transparent;} /*for mozilla*/
+
 }
 *:focus{outline:none;}
 *::-moz-focus-inner {border-color: transparent;} /*for mozilla*/
@@ -441,4 +441,14 @@ span.qq:hover+div,span.wei:hover+div{
 }
 .toTop:hover{
 	transform: scale(1.1);
+}
+#login input{
+	background: none;
+	color: white;
+	cursor: pointer;
+	border: none;
+	transition: color .3s ;  
+}
+#login input:hover{
+	color: #F1CD1F;
 }

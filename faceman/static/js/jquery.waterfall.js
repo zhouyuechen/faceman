@@ -43,7 +43,11 @@
             var $this = this;
 
             $window.on("load", function() {
-                $this._positionAll();
+               var posi= setInterval(function () { $this._positionAll(); },300);
+               setTimeout(function(){
+                   clearInterval(posi);
+               },1500);
+               
             });
 
             if(this.options.resizeable) {
