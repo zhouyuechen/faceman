@@ -96,5 +96,19 @@ router.get('/logout', function(req, res) {
   else
   {res.send("0")}
  });
+ //查询信息
+ router.get('/person_info', function(req, res) {
+   var $uid=req.session.user.uid;
+  var sql='SELECT * FROM fm_user WHERE uid=?';
+  pool.query(sql,[$uid],(err,result)=>{
+    if(err) throw err;
+    console.log(result);
+    res.send(result[0]);
+  
+	  }
+  );
+
+
+ });
 //导出路由器
 module.exports = router;

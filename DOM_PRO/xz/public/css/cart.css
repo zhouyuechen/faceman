@@ -1,0 +1,35 @@
+#cart>thead{
+  background:linear-gradient(to bottom,#f0f0f0,#e0e0e0);
+  box-shadow: 3px 3px 6px #999
+}
+#cart>thead>tr>th:nth-child(1){
+  width: 80.83px;
+}
+#cart>thead>tr>th:nth-child(2){
+  width: 404.16px;
+}
+#cart>thead>tr>th:nth-child(3){
+  width: 161.66px;
+}
+#cart>thead>tr>th:nth-child(4){
+  width: 80.83px;
+}
+#cart>thead>tr>th:nth-child(5){
+  width: 161.66px;
+}
+#cart>thead>tr>th:nth-child(6){
+  width: 80.83px;
+}
+#cart-footer{
+  background:linear-gradient(to bottom,#f0f0f0,#e0e0e0);
+}
+#cart-footer>span>a:last-child{
+  opacity:.6;
+}
+#cart+.container>div.row>div:nth-child(4)>input{
+  width:25px;
+}
+#cart+.container>div.row>div:nth-child(4)>button{
+  width:20px;
+  opacity:.4;
+}

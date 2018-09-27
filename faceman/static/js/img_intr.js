@@ -13,8 +13,7 @@ $(function () {
 				url: "http://localhost:3015/img_intr_content.html",
 				type: "get"
 			}).promise();
-/* 			console.log(intr_content);
- */           $(intr_content).appendTo("#max_box");
+          $(intr_content).appendTo("#max_box");
             $("#pic_choose").attr("style","");
 		  
 		var pid=location.search.split("=")[1]||2;

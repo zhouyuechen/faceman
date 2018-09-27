@@ -1,0 +1,25 @@
+{
+  "name": "git1",
+  "version": "1.0.0",
+  "description": "a little fxxk man ",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./js/test.js",
+    "start": "node ./js/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://www.tmooc.cn"
+  },
+  "keywords": [
+    "haha",
+    "node",
+    "test"
+  ],
+  "author": "tony",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mysql": "^2.16.0"
+  }
+}

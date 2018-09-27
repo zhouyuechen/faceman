@@ -11,7 +11,7 @@ body{
 .person_title{
 width: 100%;
 height: 10rem;
-border-bottom: 0.5rem solid #f1cd1f;
+border-bottom: 0.3rem dashed #666;
 border-radius: 5px;
 background-position: center;
 background-size: cover;
@@ -22,6 +22,7 @@ div.person_title h3{
     font-size: 2rem;
     color: white;
     margin-left: 20%;
+    margin-top: 2.5rem;
     line-height: 5rem;
 }
 .person_content{
@@ -34,7 +35,7 @@ div.person_title h3{
 }
 .person_content>nav{
     width: 15%;
-    border: 2px solid white;
+    border-right: 4px dashed #666;
 }
 .person_content>nav ul{
     width: 100%;
@@ -57,17 +58,130 @@ div.person_title h3{
 }
 .person_content>nav li.act{
     background-color: #f1cd1f;
-    color: brown;
+   
    
 }
 .person_content>nav li:hover{
     background-color: #f1cd1f;
-    color: brown;
+    
 }
 .person_content>nav li:nth-of-type(1){
     border-top: 2px dashed white;
 }
 .person_content>.person_kinds{
     width: 85%;
-    border: 2px solid gold;
+    /* border: 2px solid gold; */
+}
+.person_kinds>div{
+    display: none;
+    width: 100%;
+    height: 800px;
+    color: white;
+    box-sizing: border-box;
+}
+.person_kinds>div.act{
+    display: flex;
+}
+.person_kinds>div.myfav{
+
+flex-flow: row wrap;
+justify-content:space-around;
+align-content:flex-start;
+
+padding: 2rem;
+
+}
+.person_kinds>div.myfav div{
+   height: 7rem;
+   transform: scale(1);
+   transition: all .3s;
+   border-radius: 5px;
+   overflow: hidden;
+   margin: 5px 10px;
+}
+.person_kinds>div.myfav div:hover{
+    transform: scale(1.1);
+}
+.person_kinds>div.myfav div>img{
+    height: 100%;
+}
+.person_kinds>div.upinfo{
+    flex-flow: column wrap;
+    padding: 10px 4rem;
+}
+.person_kinds>div.upinfo>p{
+    font-size: 1.5rem;
+}
+.person_kinds>div.upinfo>button,.person_kinds>div.uppwd>button{
+    margin-left: 20%;
+    color: whitesmoke;
+    width:5rem;
+    height: 2.3rem;
+    border-radius: .5rem;
+    border: none;
+    background-color: #f1cd1f;
+    cursor: pointer;
+    transition: all .4s;
+}
+.person_kinds>div.upinfo>button:hover,.person_kinds>div.uppwd>button:hover{
+    background-color: #f1d95e;
+    color: dimgrey
+}
+.person_kinds>div.uppwd{
+    flex-flow: column wrap;
+    align-items: center;
+    padding: 5rem;
+
+}
+.person_kinds>div.uppwd>div{
+    margin: 2rem 0;
+    font-size: 1.5rem;
+}
+.uppwd>div>span{
+    line-height: 2.5rem
+}
+.person_kinds>div.uppwd>div>input{
+    margin-left: 1rem;
+    padding: 3px 10px;
+    line-height: 2.2rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 0.5rem;
+}
+#upinfo{
+    width: 25rem;
+    height: 20rem;
+    position: fixed;
+    margin-left: -10rem;
+    margin-top: -7.5rem;
+    top:50%;
+    left: 50%;
+    border-radius: 1rem;
+    border: none; 
+    background-color: #f1cd1f;
+    display: none;
+    flex-flow: column wrap;
+    align-items: center;
+    padding-top:3rem;
+}
+#upinfo input,#upinfo button.sub{
+    margin: .6rem .5rem;
+    border-radius: 5px;
+}
+#upinfo button{
+    cursor: pointer;
+    border: none;
+}
+#upinfo button.close{
+    position: absolute;
+    top: .1rem;
+    right: .2rem;
+    background-color: transparent;
+    color: firebrick;
+    font-size: 3rem;
+    font-weight: 800;
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    padding: 0;
 }

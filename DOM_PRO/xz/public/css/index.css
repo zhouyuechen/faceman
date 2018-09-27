@@ -1,0 +1,36 @@
+/*定制每层楼中每张商品图片的大小*/
+#main>div:nth-child(2)>h3>div:nth-child(2)>div:first-child img{
+  margin-left:-200px; 
+  height: 250px;
+}
+#main>div:nth-child(2)>h3>div:nth-child(2)>div:last-child img{
+  margin-left:-150px; 
+  height: 200px;
+}
+#main>div:nth-child(2)>h3>div:nth-child(3)>div:first-child img{
+  margin-left:-100px; 
+  height: 150px;
+}
+#main>div:nth-child(2)>h3>div:nth-child(3)>div:first-child img{
+  margin-left:-100px; 
+  height: 150px;
+}
+#main>div:nth-child(2)>h3>div:nth-child(3)>div:last-child .card-img-top{
+  height:95px;
+}
+#main>div:nth-child(2)>h3>div:nth-child(3)>div:last-child .card-body>span:first-child{
+  font-size:.2em;
+}
+/*定制每张商品卡片的背景色*/
+#main>div:nth-child(2)>h3 .card{
+  background-color:#e8e8e8;
+}
+/*定制电梯按钮的样式*/
+#main>.btn-group-vertical{
+  top:100px;
+  left:10px;
+}
+#main>.btn-group-vertical>.btn-secondary:hover {
+  background-color: #e4393c;
+  border-color: #e4393c;
+}

@@ -33,6 +33,20 @@
 					str += templ.replace("{{src}}", first.picture[i].src).replace("{{pid}}", first.picture[i].pid);
 				}
 				$(str).appendTo($("#demo"));
+				/* $("#demo .img_box>.pic").off("click","**");
+				$("#demo .intr>a").off("click","**");
+				$("#demo .img_box>.pic").on("click",function () { 
+					var newPid= $(this).attr("data-pid");
+				
+					location.href=`http://localhost:3015/img_intr.html?pid=${newPid}`;
+				 });
+				 $("#demo .intr>a").on("click",function(){
+					var $this=$(this);
+					var pid=$this.parent().parent().children(".pic").attr("data-pid");
+					console.log(pid);
+					
+					
+					}); */
 
 
 
@@ -60,7 +74,7 @@
 						let str = "";
 						let templ =
 							`<div class="img_box" style="opacity:0;filter:alpha(opacity=0);">
-																<div class="pic animated zoomIn " data-pid="{{pid}}" ><img src="/{{src}}" /></div>
+																<div class="pic animated zoomIn " data-pid="{{pid}}" data-over="no" ><img src="/{{src}}" /></div>
 																<div class="intr">
 																<a href="javascript:void(0)" title="收藏">❤收藏</a>
 																		</div></div>`;
@@ -69,11 +83,32 @@
 							str += templ.replace("{{src}}", first.picture[i].src).replace("{{pid}}", first.picture[i].pid);
 						}
 						$(str).appendTo($("#demo"));
-						$("#demo .img_box>.pic").on("click",function () { 
-							var newPid= $(this).attr("data-pid");
+						var $picdiv=$("#demo .img_box>.pic");
+						for (var e = 0; e < $picdiv.length; e++) {
+							
+							var self=$($picdiv[e]);
+							
+							if(self.attr("data-over")=="over"){}
+							else{
+								self.attr("data-over","over");
+								self.on("click",function () { 
+									var newPid= $(this).attr("data-pid");
+								
+									location.href=`http://localhost:3015/img_intr.html?pid=${newPid}`;
+								 });
+								 self.next("div").children("a").on("click",function(){
+									var $this=$(this);
+									var pid=$this.parent().parent().children(".pic").attr("data-pid");
+									console.log(pid);
+									
+									
+									});
+							}
+
+						}
+
 						
-							location.href=`http://localhost:3015/img_intr.html?pid=${newPid}`;
-						 });
+						 
 					})()}
 
 					success();

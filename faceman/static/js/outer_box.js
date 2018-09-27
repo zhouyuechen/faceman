@@ -208,7 +208,7 @@ function checkLogin() {
             $("[data-pusher=login]").css("display", "none");
             $("[data-pusher=register]").css("display", "none");
             $("#personal").on("click",function () { 
-                location.href=`http://localhost:3015/img_search.html?tips=`;
+                location.href=`http://localhost:3015/person_fm.html`;
              });
              $("#logout").on("click",function () { 
 				(async function(){
@@ -286,7 +286,9 @@ $("[data-pusher='login']>button").on("click",function () {
 			alert(`注册成功`);
 		}else alert(`用户名不可用,注册失败,请重试`);
        
-    })()
+	})()
+	
+
 });
 
 

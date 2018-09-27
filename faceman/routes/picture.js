@@ -1,6 +1,6 @@
-const express=require("express");
-const router=express.Router();
-const pool=require("../pool");
+const express = require("express");
+const router = express.Router();
+const pool = require("../pool");
 ///details
 /* router.get("/",(req,res)=>{
   //按lid查询商品信息和规格列表
@@ -41,95 +41,114 @@ const pool=require("../pool");
 });
  */
 
-router.get("/search",(req,res)=>{/* 搜索关键词查找  需要输入查询字符串tips= &pNum=*/
-var data={
-	pageCount:0,
-	pNum:0,
-	picture:[]
-	
-};
-	var tips=req.query.tips;
-	var pNum=req.query.pNum;
-	var tipsArr=tips.split(" ");
-	tipsArr.forEach( (elem,i,tipsArr)=>tipsArr[i]=` tips like '%${elem}%' ` );
-	var where=`WHERE ${tipsArr.join(" and ")}`;
+router.get("/search", (req, res) => { /* 搜索关键词查找  需要输入查询字符串tips= &pNum=*/
+  var data = {
+    pageCount: 0,
+    pNum: 0,
+    picture: []
 
-	var sql=`SELECT * FROM fm_picture  `;
-	sql+=where;
-	//sql+=`LIMIT ${pNum*3},3`;//页码与每页数量都可以改var limit=`LIMIT ${pNum*9},每页数量`;
-	
-	
-	pool.query(sql,[],(err,result)=>{
-		
-		if (err){ console.log( err);}
-		data.pNum=pNum;
-		data.picture=result.slice(pNum*7,pNum*7+7);
-		data.pageCount=Math.ceil(result.length/7);
-		res.send(data);
-	} );
-	
-	
-	
-	
-	
-});
-router.get("/simi",(req,res)=>{/* 搜索关键词查找  需要输入查询字符串tips= &pNum=*/
-var data={
-	
-	picture:[]
-	
-};
-	
-
-	var sql=`SELECT * FROM fm_picture  `;
-	
-	//sql+=`LIMIT ${pNum*3},3`;//页码与每页数量都可以改var limit=`LIMIT ${pNum*9},每页数量`;
-	
-	var start=Math.floor(Math.random()*14);
-	pool.query(sql,[start],(err,result)=>{
-		
-		if (err){ console.log( err);}
-		
-		data.picture=result.slice(start,start+8);
-		
-		res.send(data);
-	} );
-	
-	
-	
-	
-	
-});
-
-router.get("/img",(req,res)=>{/* 搜索关键词查找  需要输入查询字符串tips= &pNum=*/
-  var data={
-    
-    picture:[]
-    
   };
-  var pid=req.query.pid;
-  
-    var sql=`SELECT * FROM fm_picture WHERE pid=? `;
-    
-    //sql+=`LIMIT ${pNum*3},3`;//页码与每页数量都可以改var limit=`LIMIT ${pNum*9},每页数量`;
-    
-    var start=Math.floor(Math.random()*14);
-    pool.query(sql,[pid],(err,result)=>{
-      
-      if (err){ console.log( err);}
-      
-      data.picture=result;
-      
-      res.send(data);
-    } );
-    
-    
-    
-    
-    
+  var tips = req.query.tips;
+  var pNum = req.query.pNum;
+  var tipsArr = tips.split(" ");
+  tipsArr.forEach((elem, i, tipsArr) => tipsArr[i] = ` tips like '%${elem}%' `);
+  var where = `WHERE ${tipsArr.join(" and ")}`;
+
+  var sql = `SELECT * FROM fm_picture  `;
+  sql += where;
+  //sql+=`LIMIT ${pNum*3},3`;//页码与每页数量都可以改var limit=`LIMIT ${pNum*9},每页数量`;
+
+
+  pool.query(sql, [], (err, result) => {
+
+    if (err) {
+      console.log(err);
+    }
+    data.pNum = pNum;
+    data.picture = result.slice(pNum * 7, pNum * 7 + 7);
+    data.pageCount = Math.ceil(result.length / 7);
+    res.send(data);
   });
 
 
 
 
-module.exports=router;
+
+});
+router.get("/simi", (req, res) => { /* 搜索关键词查找  需要输入查询字符串tips= &pNum=*/
+  var data = {
+
+    picture: []
+
+  };
+
+
+  var sql = `SELECT * FROM fm_picture  `;
+
+  //sql+=`LIMIT ${pNum*3},3`;//页码与每页数量都可以改var limit=`LIMIT ${pNum*9},每页数量`;
+
+  var start = Math.floor(Math.random() * 14);
+  pool.query(sql, [start], (err, result) => {
+
+    if (err) {
+      console.log(err);
+    }
+
+    data.picture = result.slice(start, start + 8);
+
+    res.send(data);
+  });
+
+
+
+
+
+});
+
+router.get("/img", (req, res) => { /* 搜索关键词查找  需要输入查询字符串tips= &pNum=*/
+  var data = {
+
+    picture: []
+
+  };
+  var pid = req.query.pid;
+
+  var sql = `SELECT * FROM fm_picture WHERE pid=? `;
+
+  //sql+=`LIMIT ${pNum*3},3`;//页码与每页数量都可以改var limit=`LIMIT ${pNum*9},每页数量`;
+
+  var start = Math.floor(Math.random() * 14);
+  pool.query(sql, [pid], (err, result) => {
+
+    if (err) {
+      console.log(err);
+    }
+
+    data.picture = result;
+
+    res.send(data);
+  });
+
+
+
+
+
+});
+
+router.post('/insert_fav', (req, res) => { //2.用户登录
+  var user_id= req.session.user.uid;
+  var pic_id=req.body.pid;
+  //查询数据库中是否含有这条记录
+  //同时满足用户名为$uname和密码$upwd
+  var sql = 'INSERT INTO fm_fav VALUES (null,?,?)';
+  pool.query(sql, [user_id, pic_id], (err, result) => {
+    if (err) throw err;
+    console.log(result);
+    res.end();
+  });
+});
+
+
+
+
+module.exports = router;

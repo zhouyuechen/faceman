@@ -1,29 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>个人中心</title>
-    
-</head>
-<body>
+
     <div id="person_box" class="person_box">
         <div class="person_title">
-           <h3> <span> </span> 的个人空间</h3>
+            <h3> <span> </span> 的个人空间</h3>
 
         </div>
         <div class="person_content">
             <nav>
                 <ul>
-                    <li class="act">我的收藏</li>
-                    <li>修改信息</li>
-                    <li>修改密码</li>
-                    
+                    <li class="act" data-person="fav">我的收藏</li>
+                    <li data-person="upinfo">修改信息</li>
+                    <li data-person="uppwd">修改密码</li>
+
 
                 </ul>
             </nav>
             <div class="person_kinds">
+
+                <div class="myfav act" data-person="fav">
+
+                    <div> <img src="img/anderson.jpg" alt=""></div>
+                    <div><img src="img/skydark.gif" alt=""></div>
+                    <div><img src="img/sonofjams.jpg" alt=""></div>
+                    <div><img src="img/skydark.gif" alt=""></div>
+                    <div><img src="img/weishao0big.png" alt=""></div>
+                    <div><img src="img/skydark.gif" alt=""></div>
+                    <div><img src="img/rushdark_200x200.gif" alt=""></div>
+                    <div><img src="img/skydark.gif" alt=""></div>
+                    <div> <img src="img/anderson.jpg" alt=""></div>
+                    <div><img src="img/skydark.gif" alt=""></div>
+                    <div><img src="img/weishao0big.png" alt=""></div>
+                    <div><img src="img/rushdark_200x200.gif" alt=""></div>
+
+                    <div><img src="img/skydark.gif" alt=""></div>
+                    <div><img src="img/rushdark_200x200.gif" alt=""></div>
+                </div>
+                <div class="upinfo" data-person="upinfo">
+                    <h1>个人信息</h1>
+
+                    <p id="uname">用户名:<span></span></p>
+                    <p id="uphone"> 用户电话: <span></span></p>
+                    <p id="uemail"> 用户邮箱:<span></span></p>
+                    <p id="user_name"> 真实姓名:<span></span></p>
+                    <p id="gender"> 性别: <span></span></p>
+                   
+
+                    <button> 修改信息</button>
+                    <div id="upinfo">
+                            <div>
+                                <span>用户电话:</span><input type="text">
+                            </div>
+                            <div>
+                                <span>用户邮箱:</span><input type="text">
+                            </div>
+                            <div>
+                                <span>真实姓名:</span><input type="text">
+                            </div>
+                            <div>
+                                <span>性别:</span><input type="text">
+                            </div>
+                            <button class="sub">提交修改信息</button>
+                            <button class="close">×</button>
+    
+    
+                        </div>
+                </div>
+                <div class="uppwd" data-person="uppwd">
+                    <div>
+                        <span>请输入原密码:</span><input type="text">
+                    </div>
+                    <div>
+                        <span>请输入新密码:</span><input type="text">
+                    </div>
+                    <div>
+                        <span>请再次输入新密码:</span><input type="text">
+                    </div>
+                    <button>修改密码</button>
+                </div>
 
             </div>
 
@@ -38,7 +90,4 @@
 
 
     </div>
-<script src="js/jquery-1.7.2.min.js"></script>
-<script src="js/person_fm.js"></script>
-</body>
-</html>
+   
