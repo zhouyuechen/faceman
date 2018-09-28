@@ -63,6 +63,27 @@ $(function () {
             $("#uemail>span").html(`${person_info.email==undefined?'未填写':person_info.email}`);
             $("#user_name>span").html(`${person_info.user_name==undefined?'未填写':person_info.user_name}`);
             $("#gender>span").html(`${person_info.gender==1?'男':'女'}`);
+            /* 查询收藏图片 */
+            var pFav = await $.ajax({
+                url: "http://localhost:3015/picture/my_fav",
+                type: "get"
+            }).promise();
+            
+            var pidArr=[];
+            for(var el of pFav){
+                pidArr.push(el.pic_id);
+
+            }
+            pidArr=pidArr.toString();
+            console.log(pidArr);
+            var pFav2 = await $.ajax({
+                url: "http://localhost:3015/picture/my_fav_src",
+                type: "post",
+                data:`pidArr=${pidArr}`
+            }).promise();
+            console.log(pFav2);
+
+
 
 
         } catch (msg) {

@@ -75,7 +75,7 @@ router.get("/search", (req, res) => { /* 搜索关键词查找  需要输入查�
 
 
 });
-router.get("/simi", (req, res) => { /* 搜索关键词查找  需要输入查询字符串tips= &pNum=*/
+router.get("/simi", (req, res) => { /* 类似图片*/
   var data = {
 
     picture: []
@@ -135,20 +135,79 @@ router.get("/img", (req, res) => { /* 搜索关键词查找  需要输入查询�
 
 });
 
-router.post('/insert_fav', (req, res) => { //2.用户登录
-  var user_id= req.session.user.uid;
-  var pic_id=req.body.pid;
-  //查询数据库中是否含有这条记录
-  //同时满足用户名为$uname和密码$upwd
-  var sql = 'INSERT INTO fm_fav VALUES (null,?,?)';
-  pool.query(sql, [user_id, pic_id], (err, result) => {
+router.post('/insert_fav', (req, res) => { //收藏图片
+  var user_id = req.session.user.uid;
+  var pic_id = req.body.pid;
+  var sql1 = 'SELECT count(fid) AS num  from fm_fav WHERE user_id=? and pic_id=?';
+  pool.query(sql1, [user_id, pic_id], (err, result) => {
     if (err) throw err;
-    console.log(result);
-    res.end();
+    if (result[0]["num"] != 0) {
+      res.end();
+    } else {
+      var sql = 'INSERT INTO fm_fav VALUES (null,?,?)';
+      pool.query(sql, [user_id, pic_id], (err, result) => {
+        if (err) throw err;
+        console.log(result);
+        res.send("添加成功");
+      });
+    }
+
   });
+
+
+});
+
+router.get("/my_fav", (req, res) => { /*打开我的收藏*/
+  
+  var $uid = req.session.user.uid;
+
+  var sql = `SELECT pic_id FROM fm_fav WHERE user_id=? `;
+
+  //sql+=`LIMIT ${pNum*3},3`;//页码与每页数量都可以改var limit=`LIMIT ${pNum*9},每页数量`;
+
+
+  pool.query(sql, [$uid], (err, result) => {
+
+    if (err) {
+      console.log(err);
+    }
+    
+        res.send(result);
+    
+  
+  });
+
+
+
 });
 
 
 
+router.post("/my_fav_src", (req, res) => { /*我的收藏src*/
+  var $arr=req.body.pidArr.split(",");
+  
+
+  var sql = "SELECT src,pid FROM fm_picture WHERE";
+  for(var el of $arr){
+
+    sql+=" pid= "+el+" or ";
+  }
+  sql=sql.substring(0,sql.length-4);
+
+
+  pool.query(sql, [], (err, result) => {
+
+    if (err) {
+      console.log(err);
+    }
+    
+        res.send(result);
+    
+  
+  });
+
+
+
+});
 
 module.exports = router;

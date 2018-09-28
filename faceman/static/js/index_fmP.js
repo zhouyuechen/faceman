@@ -83,29 +83,7 @@
 							str += templ.replace("{{src}}", first.picture[i].src).replace("{{pid}}", first.picture[i].pid);
 						}
 						$(str).appendTo($("#demo"));
-						var $picdiv=$("#demo .img_box>.pic");
-						for (var e = 0; e < $picdiv.length; e++) {
-							
-							var self=$($picdiv[e]);
-							
-							if(self.attr("data-over")=="over"){}
-							else{
-								self.attr("data-over","over");
-								self.on("click",function () { 
-									var newPid= $(this).attr("data-pid");
-								
-									location.href=`http://localhost:3015/img_intr.html?pid=${newPid}`;
-								 });
-								 self.next("div").children("a").on("click",function(){
-									var $this=$(this);
-									var pid=$this.parent().parent().children(".pic").attr("data-pid");
-									console.log(pid);
-									
-									
-									});
-							}
-
-						}
+						addEL();
 
 						
 						 

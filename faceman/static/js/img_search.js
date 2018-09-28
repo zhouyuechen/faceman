@@ -43,11 +43,7 @@ $(function () {
 					str += templ.replace("{{src}}", data.picture[i].src).replace("{{pid}}", data.picture[i].pid);
 				}
 				$(str).appendTo($("#demo"));
-				$("#demo .img_box>.pic").on("click",function () { 
-					var newPid= $(this).attr("data-pid");
-				
-					location.href=`http://localhost:3015/img_intr.html?pid=${newPid}`;
-				 });
+				addEL();
 			}
 		} 
 	}); //.complete(function () {});
