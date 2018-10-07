@@ -92,12 +92,13 @@ padding: 2rem;
 
 }
 .person_kinds>div.myfav div{
-   height: 7rem;
+   height: 9rem;
    transform: scale(1);
    transition: all .3s;
    border-radius: 5px;
    overflow: hidden;
    margin: 5px 10px;
+   cursor: pointer;
 }
 .person_kinds>div.myfav div:hover{
     transform: scale(1.1);
@@ -187,4 +188,9 @@ padding: 2rem;
 }
 button:focus{
     outline: none;
+}
+.person_kinds>div.myfav h1{
+    color: #f1cd1f;
+    font-weight: 700;
+
 }

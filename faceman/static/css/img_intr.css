@@ -217,14 +217,17 @@ div.imgFun>span{
 #demo{
 	width: 100%;
 			margin:3rem auto;
-			margin-left: 2%;
 			position: relative;
 		border-bottom:2px solid transparent ;
 			background-color:transparent;
 			
 }
-
+.img_box .pic{
+	position: relative;
+	cursor: pointer;
+}
 .img_box {
+	position: relative;
 	
 	width: 20%;
 	float: left;
@@ -268,15 +271,15 @@ opacity: 0.8;
 	width: 100%;
 }
 
-#demo>p{
-position: absolute;
-bottom: -4rem;
-text-align: center;
-font-size: 2rem;
-color: #F1CD1F;
-font-weight: 700;
-width: 100%;
-
+#demo{
+	display: flex;
+	flex-flow: row wrap;
+justify-content:space-around;
+align-content:flex-start;
+padding: 2rem 4rem;
+}
+#demo>div{
+	margin: 5px 10px;
 }
 div.hide{
 	display: none;

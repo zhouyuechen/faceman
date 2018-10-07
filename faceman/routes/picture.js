@@ -105,7 +105,7 @@ router.get("/simi", (req, res) => { /* 类似图片*/
 
 });
 
-router.get("/img", (req, res) => { /* 搜索关键词查找  需要输入查询字符串tips= &pNum=*/
+router.get("/img", (req, res) => { /* 单张图片详情*/
   var data = {
 
     picture: []

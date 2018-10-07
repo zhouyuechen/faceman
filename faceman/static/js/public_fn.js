@@ -29,7 +29,7 @@ function addEL(){//给图片添加事件
 											data:`pid=${pid}`,
 											dataType: "json"
 										}).promise();
-										console.log(addFav);}
+										console.log(addFav);alert("收藏成功")}
 
 
 

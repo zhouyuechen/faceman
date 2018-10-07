@@ -62,45 +62,94 @@ $(function () {
 				url: "http://localhost:3015/picture/simi/",
 				type: "get"
 			}).promise();
-			
-
-			var str = "";
-
-			var templ =
-				`<div  class="img_box hide" >
-			<div class="pic animated  " data-pid="{{pid}}" ><img src="/{{src}}" /></div>
-			<div class="intr">
-			<a href="javascript:void(0)" title="收藏">❤收藏</a>
-					</div></div>`;
-
-			for (var i = 0; i < data.picture.length; i++) {
-				str += templ.replace("{{src}}", data.picture[i].src).replace("{{pid}}", data.picture[i].pid);
+			console.log(data);
+			let str="";
+			for(var item of data.picture){
+				str+=`<div class="img_box"  >
+				<div class="pic " data-pid=${item.pid} data-over="no">
+				<img src=${item.src}  />
+				<div class="intr">
+							<a href="javascript:void(0)" title="收藏">❤收藏</a>
+																</div>
+				</div>
+					</div>`;
+															
 			}
+			$("#demo").html(str);
+			var $picdiv=$("#demo .img_box>.pic");
+						for (var e = 0; e < $picdiv.length; e++) {
+							
+							var self=$($picdiv[e]);
+							
+							if(self.attr("data-over")=="over"){}
+							else{
+								self.attr("data-over","over");
+								self.on("click",function () { 
+									var newPid= $(this).attr("data-pid");
+								
+									location.href=`http://localhost:3015/img_intr.html?pid=${newPid}`;
+								 });
+								 self.on("click","a",function(e){
+									e.stopPropagation();
+									var $this=$(this);
+									var pid=$this.parent().parent().attr("data-pid");
+									
+									(async function(){
+										var isLogin = await $.ajax({
+											type: "GET",
+											url: "http://localhost:3015/user/login",
+								
+										}).promise();
+										if(isLogin==0) alert("请先登录，(╯‵□′)╯︵┻━┻");
+										else{var addFav= $.ajax({
+											url: "picture/insert_fav/",
+											type: "post",
+											data:`pid=${pid}`,
+											dataType: "json"
+										}).promise();
+										console.log(addFav);alert("收藏成功")}
 
-			//console.log(str);
-			$(str).appendTo($("#demo"));
-			$("#demo").waterfall({
-				itemClass: ".img_box",
-				minColCount: 2,
-				spacingHeight: 20,
-				spacingWidth: 20,
-				resizeable: false,
-				ajaxCallback: function(success, end) {
-					
 
-					if($(".img_box").is(".hide")){
-						$(".img_box").removeClass("hide");
-						$(".img_box>.pic").addClass("zoomIn");
-					}
-					addEL();
+
+									})()
+
+
+
+
+									
+									
+									});
+							}
+
+						}
+
+				$("div.imgFun>button:nth-of-type(1)").click(function () {
 					
-	
-					success();
-					end();
-					return;
-				}
-		
-			});
+									var pid=location.search.split("=")[1];
+									
+									(async function(){
+										var isLogin = await $.ajax({
+											type: "GET",
+											url: "http://localhost:3015/user/login",
+								
+										}).promise();
+										if(isLogin==0) alert("请先登录，(╯‵□′)╯︵┻━┻");
+										else{var addFav= $.ajax({
+											url: "picture/insert_fav/",
+											type: "post",
+											data:`pid=${pid}`,
+											dataType: "json"
+										}).promise();
+										console.log(addFav);
+									alert("收藏成功")}
+
+
+
+									})()
+				  });
+
+
+			
 			
 
 		
