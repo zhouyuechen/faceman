@@ -135,7 +135,7 @@ padding: 2rem;
 
 }
 .person_kinds>div.uppwd>div{
-    margin: 2rem 0;
+    margin: 1rem 0;
     font-size: 1.5rem;
 }
 .uppwd>div>span{
@@ -194,3 +194,14 @@ button:focus{
     font-weight: 700;
 
 }
+#upinfo>div p{
+   color: whitesmoke;
+   margin: -3px 0;
+   padding-left: 5rem;
+}
+.uppwd>div p{
+    color: whitesmoke;
+    margin: -1px 0;
+    font-size: 1rem !important;
+    padding-left: 1rem;
+ }

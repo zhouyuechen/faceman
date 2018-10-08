@@ -110,5 +110,58 @@ router.get('/logout', function(req, res) {
 
 
  });
+ /* 查询原密码是否正确 */
+ router.post('/last_upwd', function(req, res) {
+   var last_upwd=req.body.upwd;
+  var $uid=req.session.user.uid;
+ var sql='SELECT count(uname) as cc FROM fm_user WHERE uid=? and upwd=?';
+ pool.query(sql,[$uid,last_upwd],(err,result)=>{
+   if(err) throw err;
+   
+   if(result[0]["cc"]==0)
+   res.send("0");else res.send("1")
+
+   
+ 
+   }
+ );
+
+
+});
+
+
+ /* 修改信息 */
+ router.post('/person_upinfo',(req,res)=>{
+  var {uphone,uemail,user_name,gender} = req.body;
+  
+  console.log([uphone,uemail,user_name,gender]);
+  var sql=`UPDATE  fm_user  SET phone=?,email=?,user_name=?,gender=? WHERE uid=${req.session.user.uid}` ;
+  pool.query(sql,[uphone,uemail,user_name,gender],(err,result)=>{
+    if(err) throw err;
+    
+    if(result.affectedRows==1){
+      res.send("1");
+    }else res.send("0");
+	  
+  });
+});
+
+/* 修改密码 */
+
+ router.post('/new_upwd',(req,res)=>{//.
+  var upwd = req.body.upwd;
+  
+ 
+  var sql=`UPDATE  fm_user  SET upwd=? WHERE uid=${req.session.user.uid}` ;
+  pool.query(sql,[upwd],(err,result)=>{
+    if(err) throw err;
+    
+    if(result.affectedRows==1){
+      req.session.user = null;
+      res.send("1");
+    }else res.send("0");
+	  
+  });
+});
 //导出路由器
 module.exports = router;

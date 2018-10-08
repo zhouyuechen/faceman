@@ -51,6 +51,7 @@ $(function () {
 	}})()
 getPic();
 getPic();
+getPic();
       
 		$("#demo").waterfall({
 			itemClass: ".img_box",

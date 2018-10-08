@@ -70,44 +70,44 @@
 				if (reg1.test(ev.target.value)) {
 					sp.style.color = "lightseagreen";
 					sp.innerHTML = `用户名可用`;
-					$(ev.target).attr("isRight","y");
+					$(ev.target).attr("data-isright","y");
 				} else {
 					sp.style.color = "firebrick";
 					sp.innerHTML = `用户名不可用`;
-					$(ev.target).attr("isRight","n");
+					$(ev.target).attr("data-isright","n");
 				}
 				break;
 			case "upwd":
 				if (reg1.test(ev.target.value)) {
 					sp.style.color = "lightseagreen";
 					sp.innerHTML = `密码格式正确`;
-					$(ev.target).attr("isRight","y");
+					$(ev.target).attr("data-isright","y");
 				} else {
 					sp.innerHTML = `密码格式不正确`;
 					sp.style.color = "firebrick";
-					$(ev.target).attr("isRight","n");
+					$(ev.target).attr("data-isright","n");
 				}
 				break;
 			case "uphone":
 				if (reg2.test(ev.target.value)) {
 					sp.style.color = "lightseagreen";
 					sp.innerHTML = `电话格式正确`;
-					$(ev.target).attr("isRight","y");
+					$(ev.target).attr("data-isright","y");
 				} else {
 					sp.innerHTML = `电话格式不正确`;
 					sp.style.color = "firebrick";
-					$(ev.target).attr("isRight","n");
+					$(ev.target).attr("data-isright","n");
 				}
 				break;
 			case "uemail":
 				if (reg3.test(ev.target.value)) {
 					sp.style.color = "lightseagreen";
 					sp.innerHTML = `邮箱格式正确`;
-					$(ev.target).attr("isRight","y");
+					$(ev.target).attr("data-isright","y");
 				} else {
 					sp.innerHTML = `请填写正确格式的邮箱~`;
 					sp.style.color = "firebrick";
-					$(ev.target).attr("isRight","n");
+					$(ev.target).attr("data-isright","n");
 				}
 				break;
 		}

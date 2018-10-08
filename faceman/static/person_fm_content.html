@@ -34,16 +34,19 @@
                     <button> 修改信息</button>
                     <div id="upinfo">
                             <div>
-                                <span>用户电话:</span><input type="text">
+                                <span>用户电话:</span><input data-isright="n" name="uphone" type="text"><br>
+                                <p></p>
                             </div>
                             <div>
-                                <span>用户邮箱:</span><input type="text">
+                                <span>用户邮箱:</span><input data-isright="n" name="uemail" type="text"><br>
+                                <p></p>
                             </div>
                             <div>
-                                <span>真实姓名:</span><input type="text">
+                                <span>真实姓名:</span><input  name="user_name" type="text"><br>
+                                
                             </div>
                             <div>
-                                <span>性别:</span><input type="text">
+                                <span>性别:</span> <label for="male" >男</label> <input name="gender" id="male" type="radio"><label for="female" >女</label><input name="gender" id="female" type="radio">
                             </div>
                             <button class="sub">提交修改信息</button>
                             <button class="close">×</button>
@@ -53,13 +56,15 @@
                 </div>
                 <div class="uppwd" data-person="uppwd">
                     <div>
-                        <span>请输入原密码:</span><input type="text">
+                        <span>请输入原密码:</span><input name="last_upwd"  type="password">
+                        <p class="last"></p>
                     </div>
                     <div>
-                        <span>请输入新密码:</span><input type="text">
+                        <span>请输入新密码:</span><input name="upwd" data-isright="n" type="password"><p class="new1"></p>
                     </div>
                     <div>
-                        <span>请再次输入新密码:</span><input type="text">
+                        <span>请再次输入新密码:</span><input name="upwd" data-isright="n" type="password">
+                        <p class="new2"></p>
                     </div>
                     <button>修改密码</button>
                 </div>
